@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+#auth-bg {
+  background: linear-gradient(60deg, #1d1e22 50%, #1d1e2234),
+    url(./assets/bg.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.lds-ellipsis,
+.lds-ellipsis div {
+  box-sizing: border-box;
+}
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33.33333px;
+  width: 13.33333px;
+  height: 13.33333px;
+  border-radius: 50%;
+  background: white;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#notification-bar-overllay {
+  background-image: linear-gradient(90deg, #069e6b, #069e6b49 70%);
+}
+#notification-bar-overllay-2 {
+  background-image: linear-gradient(90deg, #720608, #ca05081c);
+}
+
+#notification {
+  animation: topTo 200ms ease-in;
+  transform: translateX(-50%);
+}
+
+@keyframes topTo {
+  0% {
+    transform: rotateX(90deg) translateX(-50%);
+  }
+  100% {
+    transform: rotateX(0) translateX(-50%);
+  }
+}
+
+.circel-loader {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.circel-loader div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  scale: 0.5;
+  width: calc(100% - 3px);
+  height: calc(100% - 3px);
+  border-radius: 100%;
+  background-color: transparent;
+  border: 3px solid blue;
+  border-color: transparent transparent transparent rgb(255, 255, 255);
+  animation: spin 900ms ease infinite;
+}
+.circel-loader div:nth-child(2) {
+  animation-delay: 50ms;
+}
+.circel-loader div:nth-child(2) {
+  animation-delay: 70ms;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* scroll bar style */
+.scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.scroll-none::-webkit-scrollbar {
+  display: none;
+}
+.scroll::-webkit-scrollbar-track {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #26272d;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+}
+.pop-animation {
+  animation: pop 100ms ease-in;
+}
+@keyframes pop {
+  0% {
+    transform: scale3d(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale3d(1);
+    opacity: 1;
+  }
+}
+
+/* messages */
+.message {
+  @apply my-2 lg:my-3  flex items-center  text-[10px] lg:text-xs rounded-sm;
+}
+.message .content {
+  @apply block w-max max-w-[70%];
+}
+.message .time {
+  @apply text-gray-light text-[8px] mt-1;
+}
+.sender {
+  @apply justify-end relative;
+}
+.reciver {
+  @apply justify-start;
+}
+.message .text {
+  @apply p-[6px] rounded-sm;
+}
+.sender .text {
+  @apply bg-green-soft block p-[6px] text-black whitespace-pre;
+}
+.reciver .text {
+  @apply block  bg-dark-surface p-[6px] text-white whitespace-pre;
+}
+
+.sender::after {
+  position: absolute;
+  right: -12px;
+  top: 0;
+  transform: rotate(-90deg);
+  content: "";
+  width: 0;
+  background-color: transparent;
+  border: 7px solid;
+  border-color: #bdd2b6 transparent transparent transparent;
+}
+#message_area::-webkit-scrollbar{
+  display: none;
+}
+
+.menu-item{
+  @apply px-3 border-none bg-transparent text-center lg:px-4 py-1 lg:py-2 cursor-pointer hover:bg-dark block w-full text-[10px] lg:text-xs text-white
+}
